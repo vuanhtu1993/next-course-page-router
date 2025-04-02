@@ -67,3 +67,13 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+export const debounce = function (cb: (...agrs: any) => void, delay: number) {
+  let timer;
+  return function (...agrs: any) {
+    clearTimeout(timer);
+    setTimeout(function () {
+      cb(...agrs)
+    }, delay)
+  }
+}
